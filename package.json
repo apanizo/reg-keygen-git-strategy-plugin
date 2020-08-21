@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Detect the snapshot key across branches to be compare with git hash.",
   "scripts": {
+    "prepublish": "rimraf dist && tsc -p tsconfig.json",
     "gen:fixtures": "mkdir -p test/fixtures && find test/builder -type f -name *.sh -exec sh {} \\;",
     "test": "jest",
     "test:watch": "jest --watch"
@@ -17,6 +18,7 @@
   },
   "repository": "https://github.com/apanizo/reg-keygen-git-strategy-plugin.git",
   "license": "MIT",
+  "main": "lib/index.js",
   "dependencies": {
     "babel-jest": "^26.1.0",
     "reg-suit-interface": "^0.7.25",
@@ -30,6 +32,7 @@
     "@types/node": "^14.0.24",
     "@types/rimraf": "^3.0.0",
     "jest": "^26.1.0",
+    "rimraf": "^3.0.2",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.7"
   },
