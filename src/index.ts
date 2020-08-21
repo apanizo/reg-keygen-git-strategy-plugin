@@ -20,8 +20,15 @@ class GitStrategyhKeyGenPlugin implements KeyGeneratorPlugin<StrategyKeyProps> {
   getExpectedKey(): Promise<string> {
     this.checkGit();
 
+    const refBranches = this.config.options.referenceBranches;
+    const expandedProtectedBranches = [
+      ...refBranches,
+      ...refBranches.map((branch) => `origin/${branch}`),
+      ...refBranches.map((branch) => `remotes/origin/${branch}`),
+    ];
+
     const baseHash = this.explorer.getBaseCommitHash(
-      this.config.options.referenceBranches,
+      expandedProtectedBranches,
       this.config.options.log
     );
 
