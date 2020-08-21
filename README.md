@@ -58,7 +58,7 @@ options: {
 }
 ```
 
-### referenceBranches
+### referenceBranches
 
 **string[](required)** :: Those are the main branches in your repo, needed for accomplish OBJECTIVE 2
 
