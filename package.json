@@ -1,0 +1,69 @@
+{
+  "name": "reg-keygen-git-strategy-plugin",
+  "version": "0.0.1",
+  "description": "Detect the snapshot key across branches to be compare with git hash.",
+  "scripts": {
+    "gen:fixtures": "mkdir -p test/fixtures && find test/builder -type f -name *.sh -exec sh {} \\;",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "keywords": [
+    "reg",
+    "reg-suit-plugin"
+  ],
+  "author": {
+    "name": "Adolfo",
+    "email": "adolfo.panizo@gmail.com"
+  },
+  "repository": "https://github.com/apanizo/reg-keygen-git-strategy-plugin.git",
+  "license": "MIT",
+  "dependencies": {
+    "babel-jest": "^26.1.0",
+    "reg-suit-interface": "^0.7.25",
+    "reg-suit-util": "^0.8.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/jest": "^26.0.5",
+    "@types/node": "^14.0.24",
+    "@types/rimraf": "^3.0.0",
+    "jest": "^26.1.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/*.d.ts"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "modulePaths": [],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "web.ts",
+      "ts",
+      "json",
+      "node"
+    ]
+  }
+}
