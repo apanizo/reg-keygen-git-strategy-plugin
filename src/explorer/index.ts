@@ -25,6 +25,10 @@ export class StrategyCommitExplorer {
 
     for (const hash of commits) {
       const branches = this.gitClient.branchesContaining(hash);
+      if (log) {
+        console.log(`Branches belonging to commit: ${hash}`);
+        console.log(branches);
+      }
 
       const included = branches.some((branch) => refBranches.includes(branch));
       if (included) {

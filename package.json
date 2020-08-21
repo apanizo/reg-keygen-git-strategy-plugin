@@ -1,6 +1,6 @@
 {
   "name": "reg-keygen-git-strategy-plugin",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Detect the snapshot key across branches to be compare with git hash.",
   "scripts": {
     "prepublish": "rimraf dist && tsc -p tsconfig.json",
