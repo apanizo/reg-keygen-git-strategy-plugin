@@ -1,0 +1,1 @@
+# reg-keygen-git-strategy-plugin
