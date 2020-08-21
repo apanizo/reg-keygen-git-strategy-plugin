@@ -1,12 +1,12 @@
 import fs from "fs";
 import path from "path";
-import { KeyGeneratorPlugin, PluginCreateOptions } from "reg-suit-interface";
+import {
+  KeyGeneratorPlugin,
+  PluginCreateOptions,
+  KeyGeneratorPluginFactory,
+} from "reg-suit-interface";
 import { StrategyCommitExplorer } from "./explorer";
-
-export interface StrategyKeyProps {
-  gitLocation: string;
-  referenceBranches: string[];
-}
+import { StrategyKeyProps } from "./types";
 
 class GitStrategyhKeyGenPlugin implements KeyGeneratorPlugin<StrategyKeyProps> {
   private config!: PluginCreateOptions<StrategyKeyProps>;
@@ -45,8 +45,12 @@ class GitStrategyhKeyGenPlugin implements KeyGeneratorPlugin<StrategyKeyProps> {
   };
 }
 
-export default () => {
+const pluginFactory: KeyGeneratorPluginFactory = () => {
   return {
     keyGenerator: new GitStrategyhKeyGenPlugin(),
   };
 };
+
+// https://www.typescriptlang.org/docs/handbook/modules.html
+// https://www.typescriptlang.org/docs/handbook/modules.html#export--and-import--require
+export = pluginFactory;

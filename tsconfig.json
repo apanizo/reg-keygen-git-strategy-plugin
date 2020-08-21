@@ -2,9 +2,11 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "outDir": "./lib",
+    "target": "es2015",
     "module": "commonjs",
-    "target": "ES5",
     "removeComments": true,
+    "moduleResolution": "node",
+    "strict": true,
     "declaration": true
   },
   "files": ["src/index.ts"]
