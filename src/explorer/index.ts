@@ -7,9 +7,15 @@ export class StrategyCommitExplorer {
     this.gitClient = new GitCmdClient(gitLocation);
   }
 
-  public getBaseCommitHash = (refBranches: string[]) => {
+  public getBaseCommitHash = (refBranches: string[], log: boolean) => {
     const branchName = this.gitClient.getActualBranch();
     const specialBranch = refBranches.includes(branchName);
+
+    if (log) {
+      console.log(`Working branch: ${branchName}`);
+      console.log(`Protected branches: ${refBranches}`);
+    }
+
     const commits = specialBranch
       ? this.gitClient.getFirstParentCommitHashes(branchName)
       : this.gitClient.getCommitHashes(branchName);
@@ -28,6 +34,13 @@ export class StrategyCommitExplorer {
       if (commitsPresentInProtectedBranches.length >= 2) {
         break;
       }
+    }
+
+    if (log) {
+      console.log("First 30 commits from working branch");
+      console.log(commits.slice(0, 30));
+      console.log("Commits present in protected branches");
+      console.log(commitsPresentInProtectedBranches);
     }
 
     if (commitsPresentInProtectedBranches.length === 0) {

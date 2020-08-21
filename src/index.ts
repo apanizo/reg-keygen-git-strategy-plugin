@@ -21,7 +21,8 @@ class GitStrategyhKeyGenPlugin implements KeyGeneratorPlugin<StrategyKeyProps> {
     this.checkGit();
 
     const baseHash = this.explorer.getBaseCommitHash(
-      this.config.options.referenceBranches
+      this.config.options.referenceBranches,
+      this.config.options.log
     );
 
     return Promise.resolve(baseHash);

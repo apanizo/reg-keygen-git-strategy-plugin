@@ -19,6 +19,7 @@ export const createGitStrategyPlugin = (): KeyGeneratorPlugin<
     options: {
       gitLocation: path.resolve(fsUtil.prjRootDir(), "test"),
       referenceBranches: ["develop", "master"],
+      log: true,
     },
     workingDirs: {
       base,

@@ -68,6 +68,16 @@ options: {
 }
 ```
 
+### log
+
+**boolean (required)** :: If enabled we log some middle values when calculating expected base hash
+
+```
+options: {
+  log: true
+}
+```
+
 ## LICENSE
 
 See [LICENSE.MD](/LICENSE.md)
