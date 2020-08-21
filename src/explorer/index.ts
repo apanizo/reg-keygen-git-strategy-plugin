@@ -15,19 +15,20 @@ export class StrategyCommitExplorer {
       : this.gitClient.getCommitHashes(branchName);
 
     // First commit which is contained in feat and also in protected branches (master or develop)
-    const commitsPresentInProtectedBranches = commits.filter((hash: string) => {
+    const commitsPresentInProtectedBranches = [];
+
+    for (const hash of commits) {
       const branches = this.gitClient.branchesContaining(hash);
 
-      for (const protectedBranch of refBranches) {
-        const included = branches.includes(protectedBranch);
-
-        if (included) {
-          return true;
-        }
+      const included = branches.some((branch) => refBranches.includes(branch));
+      if (included) {
+        commitsPresentInProtectedBranches.push(hash);
       }
 
-      return false;
-    });
+      if (commitsPresentInProtectedBranches.length >= 2) {
+        break;
+      }
+    }
 
     if (commitsPresentInProtectedBranches.length === 0) {
       throw new Error("Git state not contemplated, please report use case.");
