@@ -5,8 +5,6 @@ A reg-suit plugin to detect base and actual commit hashes accomplishing:
 - OBJECTIVE 1: Local comparison when you are on a regular branch
 - OBJECTIVE 2: Global comparision when you are in a protected branch
 
-This plugin work
-
 ## OBJECTIVE 1 :: Local comparision
 
 Basically what we want to achieve here is to compare the changes you have implemented in your actual branch against the first commit belonging to protected branches (i.e master, develop). It is important to remark we filter commits from other feature branches.
@@ -50,7 +48,7 @@ yarn test
 
 ### gitLocation
 
-**string required** :: Indicates the location of the git folder. If you have the .git folder in the root of your project. Example:
+**string (required)** :: Indicates the location of the git folder. If you have the .git folder in the root of your project. Example:
 
 ```
 options: {
@@ -61,7 +59,8 @@ options: {
 ```
 
 ### referenceBranches
-**string[] required** :: Those are the main branches in your repo, needed for accomplish OBJECTIVE 2
+
+**string[](required)** :: Those are the main branches in your repo, needed for accomplish OBJECTIVE 2
 
 ```
 options: {
