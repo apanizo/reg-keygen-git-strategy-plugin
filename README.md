@@ -67,3 +67,7 @@ options: {
   referenceBranches: ['master', 'develop']
 }
 ```
+
+## LICENSE
+
+See [LICENSE.MD](/LICENSE.md)
