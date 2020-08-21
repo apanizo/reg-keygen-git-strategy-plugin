@@ -1,7 +1,8 @@
 import path from "path";
 import { KeyGeneratorPlugin } from "reg-suit-interface";
 import { createLogger, fsUtil } from "reg-suit-util";
-import GitStrategyhKeyGenPlugin, { StrategyKeyProps } from "../../index";
+import GitStrategyhKeyGenPlugin from "../../index";
+import { StrategyKeyProps } from "../../types";
 
 export const createGitStrategyPlugin = (): KeyGeneratorPlugin<
   StrategyKeyProps
