@@ -40,7 +40,7 @@ export class GitCmdClient {
     const commit = execSync(`git rev-parse ${branch}`, {
       encoding: "utf8",
       cwd: this.executionPath,
-    });
+    }).replace("\n", "");
 
     return commit;
   }

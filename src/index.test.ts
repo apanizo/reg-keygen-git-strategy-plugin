@@ -441,4 +441,15 @@ describe("Most common git usage", () => {
     const baseCommitMessage = commitMessageFrom(baseHash);
     expect(baseCommitMessage).toBe("init import");
   });
+
+  test("return characters not included", async () => {
+    copyGitFiles("regular-branches-from-develop");
+    const gitStrategyPlugin = createGitStrategyPlugin();
+
+    const actualHash = await gitStrategyPlugin.getActualKey();
+    const baseHash = await gitStrategyPlugin.getExpectedKey();
+
+    expect(actualHash).not.toContain("\n");
+    expect(baseHash).not.toContain("\n");
+  });
 });
