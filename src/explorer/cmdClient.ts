@@ -19,7 +19,7 @@ export class GitCmdClient {
   }
 
   public getFirstParentCommitHashes = (branch: string) => {
-    const hashes = execSync(`git rev-list --first-parent ${branch}`, {
+    const hashes = execSync(`git rev-list --first-parent ${branch} --`, {
       encoding: "utf8",
       cwd: this.executionPath,
     });
@@ -28,7 +28,7 @@ export class GitCmdClient {
   };
 
   public getCommitHashes = (branch: string) => {
-    const hashes = execSync(`git rev-list ${branch}`, {
+    const hashes = execSync(`git rev-list ${branch} --`, {
       encoding: "utf8",
       cwd: this.executionPath,
     });
